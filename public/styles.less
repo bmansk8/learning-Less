@@ -1,0 +1,39 @@
+@color: red;
+@selector: h1;
+/*variables*/
+
+.img{
+  width: 300px;
+  height: 300px;
+}
+
+p{
+  /*using a class mixin*/
+  .img();
+  color: @color;
+}
+
+/*custom selector*/
+@{selector}{
+  margin-top: 100px;
+  background:blue;
+}
+
+h2{
+ background-color: @color;
+ /*using var for color*/
+}
+
+/*nesting selectors*/
+nav{
+  width: 100%;
+  background-color: aqua;
+  position: fixed;
+  top: 0;
+  left: 0;
+  ol{
+    li{
+      color: grey;
+    }
+  }
+}
