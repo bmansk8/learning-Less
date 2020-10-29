@@ -11,17 +11,13 @@ p{
   /*using a class mixin*/
   .img();
   color: @color;
+  /*also using var for color*/
 }
 
 /*custom selector*/
 @{selector}{
   margin-top: 100px;
   background:blue;
-}
-
-h2{
- background-color: @color;
- /*using var for color*/
 }
 
 /*nesting selectors*/
@@ -37,3 +33,49 @@ nav{
     }
   }
 }
+
+/*MAPS! how cool*/
+@sizes:{
+  mobile: 320px;
+  tablet: 768px;
+  desktop: 1024px;
+}
+/*basically arrays of values*/
+
+h2{
+  color: aqua;
+}
+
+/*using these in media queries seems very cool*/
+@media(max-width: @sizes[tablet]){
+  h2{color: black;}
+}
+
+/*you can also use them as mixins*/
+#list(){
+  .colors(){
+    primary:green;
+    secondary: grey;
+  }
+}
+
+/*this just seems awesome*/
+#item{
+  @colors: #list.colors();
+  color: @colors[primary];
+  background-color: @colors[secondary];
+}
+
+/* css guards are also a thing */
+/* they are similar to if statements */
+@my-option: true;
+
+button when (@my-option = true) {
+  color: white;
+}
+
+/*
+So those are the things that jumped out to me when it comes to using lesscss.
+Obvoiusly there are others, but these features are reason enough for me to want to use less.
+Please check them out at http://lesscss.org/
+*/
